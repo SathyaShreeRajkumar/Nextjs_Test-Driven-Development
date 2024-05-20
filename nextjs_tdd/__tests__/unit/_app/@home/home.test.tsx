@@ -16,7 +16,7 @@ describe('Page', () => {
         expect(cityPlaceholder).toBeInTheDocument();
     });
 
-    test('should render tittle properly', () => {
+    test('should render placeholder properly', () => {
         render(
             <ContextWrapper>
                 <Home />

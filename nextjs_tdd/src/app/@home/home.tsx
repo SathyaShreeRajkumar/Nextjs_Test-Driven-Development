@@ -1,20 +1,21 @@
 'use client';
 
 import { COMMON_CONST } from '@/constants/app-constants';
-import { usePlaceContext } from '@/context';
+import ContextWrapper, { PlaceContext } from '@/context';
+import { useContext } from 'react';
 
 export default function Home() {
-    const { selectCity, setSelectCity } = usePlaceContext();
+    const { selectCity, setSelectCity } = useContext(PlaceContext);
 
     return (
-        <div>
+        <ContextWrapper>
             <input
                 placeholder={COMMON_CONST.CITY_PLACEHOLDER}
                 className="border border-black"
                 type="text"
-                value={selectCity?.place || ''}
+                value={selectCity.place}
                 onChange={(e) => setSelectCity({ place: e.target.value })}
             />
-        </div>
+        </ContextWrapper>
     );
 }

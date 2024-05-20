@@ -1,28 +1,28 @@
 'use client';
 
-import React, { Dispatch, SetStateAction, createContext, useContext, useState } from 'react';
+import React, { Dispatch, SetStateAction, createContext, useState } from 'react';
 
-type Place = {
+export type Place = {
     place: string;
 };
 
-type PlaceContextType = {
-    selectCity: Place | undefined;
-    setSelectCity: Dispatch<SetStateAction<Place | undefined>>;
+export type PlaceContextType = {
+    selectCity: Place;
+    setSelectCity: Dispatch<SetStateAction<Place>>;
 };
 
-const PlaceContext = createContext<PlaceContextType | undefined>(undefined);
+const defaultPlace: Place = { place: '' };
+
+export const PlaceContext = createContext<PlaceContextType>({
+    selectCity: defaultPlace,
+    setSelectCity: () => {},
+});
 
 export default function ContextWrapper({ children }: { children: React.ReactNode }) {
-    const [selectCity, setSelectCity] = useState<Place | undefined>(undefined);
+    const [selectCity, setSelectCity] = useState<Place>(defaultPlace);
     return (
         <PlaceContext.Provider value={{ selectCity, setSelectCity }}>
             {children}
         </PlaceContext.Provider>
     );
-}
-
-export function usePlaceContext() {
-    const context = useContext(PlaceContext);
-    return context as PlaceContextType;
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import ContextWrapper from '@/context';
 
 export const metadata: Metadata = {
     title: 'Airline Booking'
@@ -18,11 +17,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <ContextWrapper>
                     {children}
                     {home}
                     {airlines}
-                </ContextWrapper>
             </body>
         </html>
     );

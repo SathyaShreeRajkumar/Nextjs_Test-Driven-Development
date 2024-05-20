@@ -5,3 +5,7 @@ export const mockChildrenProps = {
     airlines: faker.lorem.sentence(),
     home: faker.lorem.sentence()
 };
+
+export const mockContextProps = {
+    children: faker.lorem.sentence(),
+}

@@ -2,24 +2,18 @@
 
 import React, { Dispatch, SetStateAction, createContext, useState } from 'react';
 
-export type Place = {
-    place: string;
-};
-
 export type PlaceContextType = {
-    selectCity: Place;
-    setSelectCity: Dispatch<SetStateAction<Place>>;
+    selectCity: string;
+    setSelectCity: Dispatch<SetStateAction<string>>;
 };
-
-const defaultPlace: Place = { place: '' };
 
 export const PlaceContext = createContext<PlaceContextType>({
-    selectCity: defaultPlace,
-    setSelectCity: () => {},
+    selectCity: '',
+    setSelectCity: () => {}
 });
 
 export default function ContextWrapper({ children }: { children: React.ReactNode }) {
-    const [selectCity, setSelectCity] = useState<Place>(defaultPlace);
+    const [selectCity, setSelectCity] = useState('');
     return (
         <PlaceContext.Provider value={{ selectCity, setSelectCity }}>
             {children}

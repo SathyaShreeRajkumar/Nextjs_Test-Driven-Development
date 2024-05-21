@@ -7,5 +7,5 @@ export const mockChildrenProps = {
 };
 
 export const mockContextProps = {
-    children: faker.lorem.sentence(),
-}
+    children: faker.lorem.sentence()
+};

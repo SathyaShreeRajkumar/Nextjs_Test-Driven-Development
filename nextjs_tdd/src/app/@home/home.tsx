@@ -5,7 +5,7 @@ import ContextWrapper, { PlaceContext } from '@/context';
 import { useContext } from 'react';
 
 export default function Home() {
-    const { selectCity, setSelectCity } = useContext(PlaceContext);
+    const { setSelectCity } = useContext(PlaceContext);
 
     return (
         <ContextWrapper>
@@ -13,8 +13,7 @@ export default function Home() {
                 placeholder={COMMON_CONST.CITY_PLACEHOLDER}
                 className="border border-black"
                 type="text"
-                value={selectCity.place}
-                onChange={(e) => setSelectCity({ place: e.target.value })}
+                onChange={(e) => setSelectCity(e.target.value)}
             />
         </ContextWrapper>
     );

@@ -15,19 +15,35 @@ describe('Context Wrapper', () => {
         expect(children).toBeInTheDocument();
     });
 
-    test('should able to get and updated current date', () => {
+    test('should update the boarding state properly', () => {
         const wrapper = ({ children }: { children: React.ReactNode }) => (
             <ContextWrapper>{children}</ContextWrapper>
         );
 
         const { result } = renderHook(() => useContext(PlaceContext), { wrapper });
 
-        expect(result.current.selectCity).toEqual('');
+        expect(result.current.selectFrom).toEqual('');
 
         act(() => {
-            result.current.setSelectCity(mockPlace.place);
+            result.current.setSelectFrom(mockPlace.place);
         });
 
-        expect(result.current.selectCity).toEqual(mockPlace.place);
+        expect(result.current.selectFrom).toEqual(mockPlace.place);
+    });
+
+    test('should update the dropping state properly', () => {
+        const wrapper = ({ children }: { children: React.ReactNode }) => (
+            <ContextWrapper>{children}</ContextWrapper>
+        );
+
+        const { result } = renderHook(() => useContext(PlaceContext), { wrapper });
+
+        expect(result.current.selectTo).toEqual('');
+
+        act(() => {
+            result.current.setSelectTo(mockPlace.place);
+        });
+
+        expect(result.current.selectTo).toEqual(mockPlace.place);
     });
 });

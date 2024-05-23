@@ -4,3 +4,10 @@ export const COMMON_CONST = {
     CHOOSE_TO_FLY: 'Choose to fly',
     CITY_PLACEHOLDER: 'City'
 };
+
+export const SELECT_CONST = {
+    SELECT_FROM: 'Select Boarding',
+    SELECT_TO: 'Select Dropping',
+    FROM: 'Select From',
+    TO: 'Select To'
+};

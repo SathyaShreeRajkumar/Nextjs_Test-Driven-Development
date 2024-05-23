@@ -8,7 +8,8 @@ const createJestConfig = nextJest({
 const config: Config = {
     coverageProvider: 'v8',
     testEnvironment: 'jsdom',
-    testPathIgnorePatterns: ['__tests__/__fixtures__']
+    testPathIgnorePatterns: ['__tests__/__fixtures__', '__tests__/__utils__'],
+    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts']
 };
 
 export default createJestConfig(config);

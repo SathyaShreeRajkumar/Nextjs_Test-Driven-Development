@@ -3,19 +3,24 @@
 import React, { Dispatch, SetStateAction, createContext, useState } from 'react';
 
 export type PlaceContextType = {
-    selectCity: string;
-    setSelectCity: Dispatch<SetStateAction<string>>;
+    selectFrom: string;
+    selectTo: string;
+    setSelectFrom: Dispatch<SetStateAction<string>>;
+    setSelectTo: Dispatch<SetStateAction<string>>;
 };
 
 export const PlaceContext = createContext<PlaceContextType>({
-    selectCity: '',
-    setSelectCity: () => {}
+    selectFrom: '',
+    setSelectFrom: () => {},
+    selectTo: '',
+    setSelectTo: () => {}
 });
 
 export default function ContextWrapper({ children }: { children: React.ReactNode }) {
-    const [selectCity, setSelectCity] = useState('');
+    const [selectFrom, setSelectFrom] = useState('');
+    const [selectTo, setSelectTo] = useState('');
     return (
-        <PlaceContext.Provider value={{ selectCity, setSelectCity }}>
+        <PlaceContext.Provider value={{ selectFrom, setSelectFrom, selectTo, setSelectTo }}>
             {children}
         </PlaceContext.Provider>
     );
